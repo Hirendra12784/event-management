@@ -1,0 +1,79 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+     <div class="topnav">
+  <a class="active" href="{% url 'insert' %}">ADDEVENT</a>
+  <a class="active" href="{% url 'date' %}">RANGEEVENTS</a>
+  <a class="active"  href="{% url 'type' %}"style="float: right;">CATEGORY</a>
+  <a class="active"  href="{% url 'home' %}"style="float: right;">HOME</a>
+
+</div>
+    </div>
+     <style>
+     body {
+  margin: 0;
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.hi{
+  padding:170px;
+}
+    </style>
+<div class="hi">
+<center>
+
+  <form action=" " method="POST">
+    {% csrf_token %}
+<table border="3">
+<tr>
+  <th>Date</th>
+<th><input type="date" name="edate" placeholder="YYYY-MM-DD" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" title="Enter a date in this formart YYYY-MM-DD"/></td>
+</tr>
+    <tr>
+      <th>Name</th>
+      <th>
+      <!-- <input type="Name"placeholder="Enter Name"name="ename"> -->
+<select name="ename" id="cars">
+  <option value="Work">Work</option>
+  <option value="Other">Other</option>
+ </select>
+
+      </td>
+    </tr>
+    <tr>
+      <th>Type of Event</th>
+      <th><input type="Name"placeholder="Enter Name"name="etype"></td>
+    </tr>
+    <tr>
+  <td><input type="submit"  value="Add"/> </td>
+  <td>   {% if messages %}
+       {% for mess in messages %}
+       <b style="color:green;">{{mess}}</b>
+       {% endfor %}
+       {% endif %}</td>
+ </tr>
+    </tr>
+  </table>
+  </form>
+  <br>
+  
+</center>
+</div>
+  </body>
+</html>

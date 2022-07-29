@@ -1,0 +1,78 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+     <div class="topnav">
+  <a class="active" href="{% url 'insert' %}">ADDEVENT</a>
+  <a class="active" href="{% url 'date' %}">RANGEEVENTS</a>
+  <a class="active"  href="{% url 'type' %}"style="float: right;">CATEGORY</a>
+  <a class="active"  href="{% url 'home' %}"style="float: right;">HOME</a>
+
+</div>
+    </div>
+     <style>
+     body {
+  margin: 0;
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.hi{
+  padding:170px;
+}
+    </style>
+<div class="hi">
+<center>
+  <form action=" " method="POST">
+    {% csrf_token %}
+<table border="10">
+<tr>
+  <th>type</th>
+<th>
+  <!-- <input type="text" name="type" /> -->
+<select name="type" id="cars">
+  <option value="Work">Work</option>
+  <option value="Other">Other</option>
+ </select>
+</td>
+</tr>
+    
+  <td><input type="submit"  value="Show"/> </td>
+
+  </table>
+  </form>
+  <br>
+  {% if l %}
+  {% for r in da %}
+       <p style="color:black; font-weight:bold;  text-transform: uppercase;">{{forloop.counter}} {{r}}</p>
+{% endfor %}
+
+{% else %} <p style="color:black; font-weight:bold;  text-transform: uppercase;">No EVENTS </p>
+{% endif %}
+
+</center>
+</div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
